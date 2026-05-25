@@ -1,0 +1,61 @@
+# Commit Convention
+
+이 프로젝트의 커밋 메시지는 Conventional Commits 형식을 따른다.
+
+## Format
+
+```text
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+- `type`은 반드시 소문자로 작성한다.
+- `scope`는 선택 사항이며 변경 범위를 짧게 적는다. 예: `app`, `about`, `ui`, `config`, `deps`
+- `subject`는 50자 이내의 명령형 또는 간결한 현재형 문장으로 작성한다.
+- 제목 끝에는 마침표를 붙이지 않는다.
+- 본문은 필요한 경우에만 작성하며, 무엇을 왜 변경했는지 설명한다.
+- 관련 이슈가 있으면 footer에 `Closes #123`, `Refs #123` 형식으로 작성한다.
+
+## Types
+
+- `feat`: 새로운 기능 추가
+- `fix`: 버그 수정
+- `docs`: 문서 변경
+- `style`: 코드 의미에 영향을 주지 않는 포맷팅, 세미콜론, 공백 변경
+- `refactor`: 기능 변경 없는 코드 구조 개선
+- `perf`: 성능 개선
+- `test`: 테스트 추가 또는 수정
+- `build`: 빌드 시스템, 패키지, 의존성 변경
+- `ci`: CI 설정 또는 스크립트 변경
+- `chore`: 기타 설정, 유지보수 작업
+- `revert`: 이전 커밋 되돌리기
+
+## Examples
+
+```text
+feat(about): 회사 소개 페이지 섹션 추가
+fix(ui): 모바일 화면에서 버튼 줄바꿈 문제 수정
+docs(readme): 실행 방법 안내 보강
+refactor(app): 페이지 레이아웃 컴포넌트 분리
+chore(deps): 패키지 잠금 파일 갱신
+```
+
+## Breaking Changes
+
+호환성이 깨지는 변경은 제목의 type 뒤에 `!`를 붙이고 footer에 설명한다.
+
+```text
+feat(api)!: 사용자 응답 구조 변경
+
+BREAKING CHANGE: user.name 필드가 profile.name으로 이동됨
+```
+
+## Commit Guidelines
+
+- 하나의 커밋에는 하나의 논리적 변경만 담는다.
+- 단순 저장, 임시 수정, 불명확한 메시지는 사용하지 않는다. 예: `update`, `fix`, `wip`
+- 자동 생성 파일 변경은 실제 코드 변경과 관련 있을 때만 함께 커밋한다.
+- 커밋 전에 가능한 범위에서 lint, type check, test를 확인한다.
